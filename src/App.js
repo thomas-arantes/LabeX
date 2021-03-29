@@ -1,18 +1,23 @@
-import React from 'react'
-import Homepage from './components/homepage'
-import ApplicationForm from './components/applicationForm'
-import ListTrips from './components/listTrips'
-import CreateTrip from './components/createTrip'
-import TripDetails from './components/tripDetails'
-import LoginPage from './components/loginPage'
-import './App.css';
-import Router from './router/router'
+import React, {useState} from "react"
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./constants/theme";
+import Router from "./router/Router"
+import Header from "./components/Header/Header";
+import { BrowserRouter } from "react-router-dom";
+
 
 function App() {
-  return (
-    <div className="App">
-      <Router />
-    </div>
+
+  const token = localStorage.getItem("token")
+  const [rightButtonText, setRightButtonText] = useState(token ? "Sair" : "Entrar")
+
+  return ( 
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Header  rightButtonText = {rightButtonText} setRightButtonText = {setRightButtonText}/>
+        <Router  setRightButtonText = {setRightButtonText}/>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

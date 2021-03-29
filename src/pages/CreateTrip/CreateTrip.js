@@ -1,8 +1,8 @@
 import React from 'react'
-import {Header} from './styles.js'
 import {useHistory} from 'react-router-dom'
-import { useInput } from '../hooks/useInput.js'
-import { useProtectedPage } from '../hooks/useProtectedPage.js'
+import Header from '../../components/Header/Header.js'
+import { useInput } from '../../hooks/useInput.js'
+import { useProtectedPage } from '../../hooks/useProtectedPage.js'
 
 const CreateTrip = () => {
     useProtectedPage();
@@ -24,10 +24,7 @@ const CreateTrip = () => {
 
     return (
       <div className="App">
-          <Header>
-              <p>Logo</p>
-              <button onClick = {goToTripsList}> Criar Viagens </button>
-          </Header>
+          <Header/>
           <div>
           <form onSubmit={onSubmitForm}> 
               <p>Nome:</p>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import {Header} from './styles.js'
+import {Header} from '../styles.js'
 import { useHistory, useParams } from 'react-router-dom'
-import { useProtectedPage } from '../hooks/useProtectedPage.js'
+import { useProtectedPage } from '../../hooks/useProtectedPage.js'
 import axios from 'axios'
 
 

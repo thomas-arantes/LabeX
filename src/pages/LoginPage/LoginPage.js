@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
-import {Header,} from './styles.js'
 import {useHistory} from 'react-router-dom'
-import { useInput } from '../hooks/useInput.js'
+import { useInput } from '../../hooks/useInput.js'
 import axios from 'axios'
+import { Button, TextField } from "@material-ui/core"
+import Header from '../../components/Header/Header.js'
 
 const LoginPage = () => {
     const [email, handleEmail] = useInput(); 
@@ -37,15 +38,28 @@ const LoginPage = () => {
 
     return (
       <div className="App">
-          <Header>
-              <p>Logo</p>
-          </Header>
+          <Header />
           <div>
             <p>E-mail:</p>
-            <input value = {email} onChange = {handleEmail} />
+            <TextField 
+              name = {"email"}
+              value = {email} 
+              label = {"E-mail"}
+              variant = {"outlined"}
+              type = {"email"}
+              onChange = {handleEmail} />
             <p>Senha:</p>
-            <input type = "password" value = {password} onChange = {handlePassword} />
-            <button onClick = {login}> Login </button>
+            <TextField 
+              name = {"password"}
+              label = {"Senha"}
+              type = {"password"}
+              variant = {"outlined"}
+              value = {password} 
+              onChange = {handlePassword} />
+            <Button 
+              onClick = {login}> 
+                Login 
+            </Button>
         </div>
       </div>
     );

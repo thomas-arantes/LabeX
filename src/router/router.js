@@ -1,41 +1,39 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Homepage from '../components/homepage'
-import ApplicationForm from '../components/applicationForm'
-import LoginPage from '../components/loginPage'
-import ListTrips from '../components/listTrips'
-import CreateTrip from '../components/createTrip'
-import TripDetails from '../components/tripDetails'
-import ErrorPage from '../components/errorPage'
+import { Route, Switch } from 'react-router-dom'
+import Homepage from '../pages/Homepage/Homepage'
+import ApplicationForm from '../pages/ApplicationForm/ApplicationForm'
+import LoginPage from '../pages/LoginPage/LoginPage'
+import ListTrips from '../pages/ListTrips/ListTrips'
+import CreateTrip from '../pages/CreateTrip/CreateTrip'
+import TripDetails from '../pages/TripDetails/TripDetails'
+import ErrorPage from '../pages/ErrorPage'
 
 
-function Router() {
+function Router({setRightButtonText}) {
     return (
-      <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Homepage />
+            <Homepage setRightButtonText = {setRightButtonText}/>
           </Route>
           <Route exact path = "/applicationform">
-            <ApplicationForm />
+            <ApplicationForm setRightButtonText = {setRightButtonText}/>
           </Route>
           <Route exact path = "/login">
-            <LoginPage />
+            <LoginPage setRightButtonText = {setRightButtonText}/>
           </Route>
           <Route exact path = "/trips/create">
-            <CreateTrip />
+            <CreateTrip setRightButtonText = {setRightButtonText}/>
           </Route> 
           <Route exact path = "/trips/list">
-            <ListTrips />
+            <ListTrips setRightButtonText = {setRightButtonText}/>
           </Route> 
           <Route exact path = "/trips/details/:id">
-            <TripDetails />
+            <TripDetails setRightButtonText = {setRightButtonText}/>
           </Route> 
           <Route>
             <ErrorPage />
           </Route>
         </Switch>
-      </BrowserRouter>
     );
   }
   

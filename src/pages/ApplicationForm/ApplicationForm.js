@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react'
-import {Header,} from './styles.js'
 import {useHistory} from 'react-router-dom'
-import { useInput } from '../hooks/useInput.js'
+import { useInput } from '../../hooks/useInput.js'
+import { Button, TextField } from "@material-ui/core"
 import axios from 'axios'
+import { PageContainer } from './styled.js'
 
 const ApplicationForm = () => {
   const [form, handleForm] = useInput({
@@ -77,29 +78,26 @@ const ApplicationForm = () => {
   console.log(selectTrip)
 
   return (
-    <div className="App">
-      <Header>
-        <p>Logo</p>
-          <button onClick = {goToLoginPage}>Login</button>
-      </Header>
+    <PageContainer>
+
       <div>
 
         <form onSubmit={onSubmitForm}> 
 
           <p>Nome:</p>
-          <input name = {"name"} value = {form.name} type={"text"} onChange = {handleForm} pattern = {"[a-zA-ZsÀ-ú ]{3,}"} required/>
+          <TextField name = {"name"} value = {form.name} type={"text"} onChange = {handleForm} pattern = {"[a-zA-ZsÀ-ú ]{3,}"} required/>
 
           <p>Idade:</p>
-          <input name = {"age"} value = {form.age} type={"number"} onChange = {handleForm} min="18" required />
+          <TextField name = {"age"} value = {form.age} type={"number"} onChange = {handleForm} min="18" required />
 
           <p>Texto de aplicação:</p>
-          <input name = {"applicationText"} value = {form.applicationText} type = {"text"} pattern = {"[a-zA-ZsÀ-ú ]{30,}"} onChange = {handleForm} required/>
+          <TextField name = {"applicationText"} value = {form.applicationText} type = {"text"} pattern = {"[a-zA-ZsÀ-ú ]{30,}"} onChange = {handleForm} required/>
 
           <p>Profissão:</p>
-          <input name = {"profession"} value = {form.job} type = {"text"} pattern = {"[a-zA-ZsÀ-ú ]{10,}"} onChange = {handleForm} required />
+          <TextField name = {"profession"} value = {form.job} type = {"text"} pattern = {"[a-zA-ZsÀ-ú ]{10,}"} onChange = {handleForm} required />
 
           <p>País:</p>
-          <input value = {form.country} onChange = {handleForm} />
+          <TextField value = {form.country} onChange = {handleForm} />
 
           <p>Viagens:</p>
           <select name = "trip" value = {selectTrip} onChange={handleSelectTrip} >
@@ -108,12 +106,20 @@ const ApplicationForm = () => {
             })}        
           </select>
 
+          <Button 
+            gutterBottom 
+            variant = {"contained"}
+            align={'center'} 
+            color={'Primary'}
+            onClick = {applyToTrip}
+            > 
+              Enviar 
+          </Button> 
+
         </form>
-        
-        <button onClick = {applyToTrip}> Enviar </button>
 
         </div>
-      </div>
+      </PageContainer>
     );
   }
   

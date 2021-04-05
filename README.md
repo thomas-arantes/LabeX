@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# LabeX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Front-end de uma aplicção onde é possível ver e se candidatar para viagens espaciais. Ao logar como admin você consegue criar novas viagens e ver quem se candidatou, alem de aprovar essas pessoas ou não, para se candidatar as viagens não é preciso login  
+Esta aplicação utiliza uma API desenvolvida pela Labenu. Cadastre-se para utilizar
+
+Projeto desenvolvido com Create React App.
 
 ## Available Scripts
 
